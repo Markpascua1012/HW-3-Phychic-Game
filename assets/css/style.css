@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+} 
+
+
+p{
+    text-align: center;
+    font-family: 'Pathway Gothic One', sans-serif;
+}
+.card {
+    margin-left: 200px;
+    margin-right: 200px;
+    background-color: rgb(228, 212, 228)
+    
+    
+}

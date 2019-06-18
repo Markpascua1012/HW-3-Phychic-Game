@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Pathway+Gothic+One&display=swap" rel="stylesheet">
+
+    <title>Psychic Game</title>
+
+
+</head>
+
+<body background="assets/images/f34cf6e9def14ddd1f61ff6f18b17e9a.jpg">
+    <br>
+
+    <div class="card">
+            <div class="card-body">
+              <h1>Psychic Game</h1>
+              <br>
+              <h1>Guess what letter I'm thinking of</h1>
+            </div>
+          </div>
+   
+    <br>
+    
+
+    <br>
+    <div class="card">
+            <div class="card-body">
+                    <div>
+                            <p id="directions-text">Press a letter key</p>
+                            <p id="userchoice-text"></p>
+                            <p id="wins-text"></p>
+                            <p id="losses-text"></p>
+                            <p id="guesses-text"></p>
+                        </div>
+            </div>
+          </div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+        var wins = 0;
+        var losses = 0;
+        var guesses = 10;
+
+
+    var winsText = document.getElementById("wins-text");
+    var lossesText = document.getElementById("losses-text");
+    var userChoiceText = document.getElementById("userchoice-text");
+    var guessesText = document.getElementById("guesses-text");
+    function reset () {
+        guesses = 10;
+    }
+    function compare(userGuess, computerGuess) {
+                
+
+                if (userGuess === computerGuess) {
+                    wins++; 
+                    guesses--;
+                    
+                }
+                if (userGuess !== computerGuess) {
+                    guesses--;
+            
+                }
+                if (guesses===0){
+                    losses++;
+                     guesses = 10
+
+                }
+                
+            }
+        document.onkeyup = function (event) {
+
+
+            var userGuess = event.key;
+
+            var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+
+
+            compare(userGuess, computerGuess);
+
+        winsText.textContent = "wins: " + wins;
+        lossesText.textContent = "losses: " + losses;
+        userChoiceText.textContent = "You chose: " + userGuess;
+        guessesText.textContent= "Guesses: " + guesses;
+
+        
+
+
+
+        }
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
